@@ -127,7 +127,7 @@ indices=pd.Series(df_movies.index,index=df_movies['title'])
 titles=df_movies['title']
 def movie_recommendations(title):
     movie_index = indices[title]
-    similarity_scores = list(enumerate(cosine_sim[movie_index]))
+    similarity_scores = list(enumerate(cosine_similarity[movie_index]))
     similarity_scores = sorted(similarity_scores, key=lambda x: x[1], reverse=True)
     similarity_scores = similarity_scores[1:21]
     movie_indices = [i[0] for i in similarity_scores]
